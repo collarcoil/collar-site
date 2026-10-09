@@ -1,0 +1,79 @@
+/* Collar's public pages. Colors are the app's own (lib/ui/theme/collar_theme.dart):
+   warm paper and vermilion by day, graphite by night. */
+:root {
+  --paper: #FAF5EC;
+  --card: #F0E8D8;
+  --ink: #201A11;
+  --muted: #6B6353;
+  --rule: #DCD2BF;
+  --accent: #DC3E12;
+  --accent-ink: #FFFFFF;
+  --sun: #FFC63D;
+  --focus: #2E7CF6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #14161B;
+    --card: #1E222A;
+    --ink: #E9ECF2;
+    --muted: #A4ABB8;
+    --rule: #2C313B;
+    --accent: #FF7A4D;
+    --accent-ink: #14161B;
+    --sun: #F4D26B;
+    --focus: #A9C8FF;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.65 "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Hebrew", sans-serif;
+}
+.wrap { max-width: 44rem; margin: 0 auto; padding-inline: 20px; }
+
+header.site {
+  border-bottom: 1px solid var(--rule);
+  padding-block: 14px;
+}
+header.site .wrap { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none;
+  font: 700 22px/1 "Bricolage Grotesque", system-ui, sans-serif; letter-spacing: -0.02em; }
+.brand img { width: 32px; height: 32px; border-radius: 9px; }
+nav.top { margin-inline-start: auto; display: flex; gap: 16px; flex-wrap: wrap; font-size: 15px; }
+nav.top a { color: var(--muted); text-decoration: none; }
+nav.top a:hover, nav.top a[aria-current="page"] { color: var(--ink); }
+
+main { padding-block: 36px 56px; }
+h1, h2, h3 { font-family: "Bricolage Grotesque", system-ui, sans-serif; letter-spacing: -0.015em; line-height: 1.2; text-wrap: balance; }
+h1 { font-size: clamp(30px, 6vw, 44px); margin: 0 0 8px; }
+h2 { font-size: 23px; margin: 36px 0 8px; }
+h3 { font-size: 18px; margin: 22px 0 4px; }
+p, li { max-width: 65ch; }
+.lede { font-size: 19px; color: var(--muted); margin-top: 0; }
+.updated { color: var(--muted); font-size: 14px; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+ul { padding-inline-start: 1.2em; }
+li { margin-block: 4px; }
+
+.card { background: var(--card); border-radius: 18px; padding: 18px 20px; margin-block: 18px; }
+.card h3 { margin-top: 0; }
+.cta { display: inline-block; background: var(--accent); color: var(--accent-ink); text-decoration: none;
+  font-weight: 700; padding: 12px 20px; border-radius: 14px; }
+.badges { display: flex; gap: 10px; flex-wrap: wrap; margin-block: 18px; }
+.badge { border: 1.5px solid var(--rule); border-radius: 14px; padding: 10px 16px; color: var(--muted); font-size: 15px; }
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 14px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+.table-scroll { overflow-x: auto; }
+th, td { text-align: start; padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 700; }
+
+footer.site { border-top: 1px solid var(--rule); padding-block: 22px; color: var(--muted); font-size: 14px; }
+footer.site .wrap { display: flex; gap: 14px; flex-wrap: wrap; }
+footer.site a { color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
